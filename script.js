@@ -1,4 +1,3 @@
-// Step 1: Create an array of objects representing events
 const events = [
   {
     title: "Meeting",
@@ -86,15 +85,14 @@ eventOrganizers.set(event, event.title);
 
 // Step 4: Use destructuring assignment to extract and display event properties in a table format
 function displayEventProperties() {
-  const firstEvent = events[0];
-  const eventProperties = document.getElementById("event-properties");
-
-  eventProperties.innerHTML = ""; // Clear previous entries
-
-  Object.entries(firstEvent).forEach(([key, value]) => {
+  const eventPropertiesBody = document.getElementById("event-properties-body");
+  
+  eventPropertiesBody.innerHTML = ""; // Clear previous entries
+  
+  events.forEach(event => {
     const row = document.createElement("tr");
-    row.innerHTML = `<td>${key}</td><td>${value}</td>`;
-    eventProperties.appendChild(row);
+    row.innerHTML = `<td>${event.title}</td><td>${event.date.toDateString()}</td><td>${event.location}</td><td>${Array.from(event.attendees).join(", ")}</td>`;
+    eventPropertiesBody.appendChild(row);
   });
 }
 
@@ -167,7 +165,7 @@ function findEventWithMostAttendees() {
 
 // Initial display of events
 displayNext7DaysEvents();
-//displayEventProperties();
+displayEventProperties();
 // displayEventEntries();
 //logEventTitleAndDate();
 findEventWithMostAttendees();
@@ -182,4 +180,5 @@ addAttendeeForm.addEventListener("submit", function(event) {
   // Refresh display after adding attendee
   displayNext7DaysEvents();
   findEventWithMostAttendees();
+  displayEventProperties();
 });
