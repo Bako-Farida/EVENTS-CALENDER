@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar Application Events Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Calendar Application Events Manager</h1>
+
+  <div id="events-list">
+    <h2>Events happening in the next 7 days:</h2>
+    <table id="events-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody id="events-table-body">
+        <!-- Events will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+
+  <div id="add-attendee-form">
+    <h2>Add Attendee to Event</h2>
+    <form id="add-attendee-form">
+      <label for="event-title">Event Title:</label>
+      <input type="text" id="event-title" name="event-title" required>
+      <label for="attendee-name">Attendee Name:</label>
+      <input type="text" id="attendee-name" name="attendee-name" required>
+      <button type="submit">Add Attendee</button>
+    </form>
+  </div>
+
+  <div id="most-attendees">
+    <h2>Event with Most Attendees</h2>
+    <p id="most-attendees-info"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
